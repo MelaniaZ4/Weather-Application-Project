@@ -11,20 +11,22 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
         <link rel="stylesheet" href="src/styles.css">
 </head>
 <body>
     <div class="container">
         <div class="weather-app-wrapper">
             <div class="weather-app">  
-                <h1 class="city">Sydney</h1>
+                <h1 id="city"></h1>
                 <div class="overview">
                     <ul>
                         <li>
                             Friday, 05:20 
                         </li>
-                        <li>
-                            Clear   
+                        <li id="description">
+                               
                         </li>  
                     </ul>
                 </div>
@@ -37,8 +39,7 @@
                             class= "float-left">
                         </div>
                         <div class="float-left">
-                            <span id="temperature">
-                            20 
+                            <span id="temperature"> 
                             </span>
                             <span id="units">
                             °C|°F
@@ -48,13 +49,19 @@
                     <div class="col-md-6">
                         <ul>
                             <li>
-                                Precipitation: 0%
+                                Feels like: 
+                                <span id="feelsLike">6</span>   
+                                °C
                             </li>
                             <li>
-                                Humidity: 73%h
+                                Humidity: 
+                                <span id="humidity">73</span>
+                                %
                             </li>
-                            <li>
-                                Wind: 2 km/h
+                            <li  >
+                                Wind: 
+                                <span id="windSpeed">2</span>
+                                km/h
                             </li>
                         </ul>
                     </div>
