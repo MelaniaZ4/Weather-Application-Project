@@ -1,6 +1,6 @@
-function formatDate (timestamp){
-    //calculate date
 
+
+function formatDate (time){debugger;
     let days = [
         "Sunday",
         "Monday", 
@@ -9,21 +9,20 @@ function formatDate (timestamp){
         "Thursday",
         "Friday",
         "Saturday"
-        
     ]
-    console.log(timestamp);
-    let date = new Date(timestamp);
-    let hours = timestamp.getHours();
+    let date = new Date(time);
+    let hours = date.getHours();
     if (hours < 10) {
-    hours = `0${hours}`;
-}
-    let minutes = timestamp.getMinutes();
-if (minutes < 10) {
+    hours = `0${hours}`;    
+} 
+    let minutes = date.getMinutes();
+    if (minutes < 10) {
     minutes = `0${minutes}`;
 }
-    let day = days[timestamp.getDay()];
+    let day = days[date.getDay()];
 
     return `${day} ${hours}:${minutes}`;
+   
 }
 
 function displayTemperature(response){
@@ -36,6 +35,7 @@ function displayTemperature(response){
     let windSpeedElement = document.querySelector("#windSpeed");
     let windSpeed = Math.round(response.data.wind.speed);
     let dateElement = document.querySelector("#date");
+    let weatherIcon = document.querySelector("#weather-icon");
    
     temperatureElement.innerHTML = Math.round(response.data.main.temp);
     cityElement.innerHTML = response.data.name;
@@ -44,6 +44,12 @@ function displayTemperature(response){
     humidityElement.innerHTML = `${response.data.main.humidity}`;
     windSpeedElement.innerHTML = `${windSpeed}`;
     dateElement.innerHTML = formatDate(response.data.dt * 1000);
+    weatherIcon.setAttribute("src", 
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+    );
+    weatherIcon.setAttribute("alt", 
+    response.data.weather[0].description);
+    
 }
 
 let city = "New York";
