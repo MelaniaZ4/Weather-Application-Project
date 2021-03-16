@@ -11,19 +11,19 @@ function formatDate (timestamp){
         "Saturday"
         
     ]
+    console.log(timestamp);
     let date = new Date(timestamp);
-    let hours = date.getHours();
+    let hours = timestamp.getHours();
     if (hours < 10) {
     hours = `0${hours}`;
 }
-    let minutes = date.getMinutes();
+    let minutes = timestamp.getMinutes();
 if (minutes < 10) {
     minutes = `0${minutes}`;
 }
-    let day = days[date.getDay()];
+    let day = days[timestamp.getDay()];
 
     return `${day} ${hours}:${minutes}`;
-    
 }
 
 function displayTemperature(response){
