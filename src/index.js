@@ -36,6 +36,8 @@ function displayTemperature(response){
     let windSpeed = Math.round(response.data.wind.speed);
     let dateElement = document.querySelector("#date");
     let weatherIcon = document.querySelector("#weather-icon");
+
+    celsiusTemperature = response.data.main.temp;
    
     temperatureElement.innerHTML = Math.round(response.data.main.temp);
     cityElement.innerHTML = response.data.name;
@@ -55,7 +57,6 @@ function displayTemperature(response){
 function handleSubmit(event){
     event.preventDefault(); 
     let cityInputElement = document.querySelector("#city-input");
-    console.log(cityInputElement.value);
     let cityElement = document.querySelector("#city");
     cityElement.innerHTML = `${cityInputElement.value}`;
     search(cityInputElement.value);
@@ -67,8 +68,36 @@ function search(city){
     axios.get(apiUrl).then(displayTemperature);
 }
 
+function convertToCelsius(event){
+    event.preventDefault();
+    let temperatureElement = document.querySelector("#temperature");
+    let fahrenheitTemperature = Math.round((celsiusTemperature * 9/5) + 32);
+    temperatureElement.innerHTML = fahrenheitTemperature;
+    celsiusElement.classList.remove("active");
+    fahrenheitElement.classList.add("active");
+
+}
+
+function convertToFahrenheit(event){
+    event.preventDefault();
+    let temperatureElement = document.querySelector("#temperature");
+    let celsiusElement = document.querySelector("#celsius");
+    temperatureElement.innerHTML = Math.round(celsiusTemperature);
+    celsiusElement.classList.add("active");
+    fahrenheitElement.classList.remove("active");
+}
+
 
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
 
 search("New York");
+
+
+let celsiusTemperature = null
+let celsiusElement = document.querySelector("#celsius");
+let fahrenheitElement = document.querySelector("#fahrenheit");
+fahrenheitElement.addEventListener("click", convertToCelsius);
+
+let celsius = document.querySelector("#celsius");
+celsiusElement.addEventListener("click", convertToFahrenheit);
