@@ -52,6 +52,10 @@ li:first-letter {
   text-decoration: none;
 }
 
+.weather-forecast {
+  margin-top: 20px;
+}
+
 #temperature {
   font-size: 40px;
   padding-left: 10px;
