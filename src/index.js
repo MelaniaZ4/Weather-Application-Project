@@ -22,8 +22,37 @@ function formatDate (time){
     let day = days[date.getDay()];
 
     return `${day} ${hours}:${minutes}`;
-   
 }
+
+function formatHours(timestamp){
+    let date = new Date(timestamp);
+    let hours = date.getHours();
+    if (hours < 10) {
+    hours = `0${hours}`;    
+} 
+    let minutes = date.getMinutes();
+    if (minutes < 10) {
+    minutes = `0${minutes}`;
+
+    return `${hours}:${minutes}`;
+}
+}
+
+function formatDays(timestamp){
+    let date = new Date(timestamp);
+    let days = [
+        "Sun",
+        "Mon", 
+        "Tue",
+        "Wed",
+        "Thu",
+        "Fri",
+        "Sat"
+    ]
+    let day = days[date.getDay()];
+
+    return `${day}`;
+}   
 
 function displayTemperature(response){
     let temperatureElement = document.querySelector("#temperature");
@@ -60,36 +89,6 @@ function handleSubmit(event){
     let cityElement = document.querySelector("#city");
     cityElement.innerHTML = `${cityInputElement.value}`;
     search(cityInputElement.value);
-}
-
-function formatHours(timestamp){
-    let date = new Date(timestamp);
-    let hours = date.getHours();
-    if (hours < 10) {
-    hours = `0${hours}`;    
-} 
-    let minutes = date.getMinutes();
-    if (minutes < 10) {
-    minutes = `0${minutes}`;
-
-    return `${hours}:${minutes}`;
-}
-}
-
-function formatDays(timestamp){
-    let date = new Date(timestamp);
-    let days = [
-        "Sun",
-        "Mon", 
-        "Tue",
-        "Wed",
-        "Thu",
-        "Fri",
-        "Sat"
-    ]
-    let day = days[date.getDay()];
-
-    return `${day}`;
 }
 
 function displayForecast(response){
