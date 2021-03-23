@@ -73,6 +73,10 @@ li:first-letter {
   width: 48px;
 }
 
+.forecast-day {
+  margin-bottom: 15px;
+}
+
 .weather-forecast-temperature {
   text-align: center;
   color: rgb(135, 135, 135);
