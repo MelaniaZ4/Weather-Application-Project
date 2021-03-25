@@ -93,106 +93,30 @@ function handleSubmit(event){
 
 function displayForecast(response){
     let forecastElement = document.querySelector("#forecast");
+    forecastElement.innerHTML = null;
+    let forecast = null;
     
-    forecastElement.innerHTML = `
-    <div class="col-2 day1">
+    for (let index = 0; index < 6; index++) {
+    forecast = response.data.list[index];
+    forecastElement.innerHTML += `
+    <div class="col-2">
                         <h3 class="forecast-day">
-                            ${formatDays(response.data.list[0].dt * 1000)}
-                            ${formatHours(response.data.list[0].dt * 1000)}
+                            ${formatDays(forecast.dt * 1000)}
+                            ${formatHours(forecast.dt * 1000)}
                         </h3>
-
-                        <img src="http://openweathermap.org/img/wn/${response.data.list[0].weather[0].icon}@2x.png" alt="sunny" id="day1-icon">
+                        <img src="http://openweathermap.org/img/wn/${forecast.weather[0].icon}@2x.png" alt="sunny" id="day1-icon">
                         <div class="weather-forecast-temperature">
                             <strong id="temperature-high">
-                                ${Math.round(response.data.list[0].main.temp_max)}°
-                            </strong>
-
+                                ${Math.round(forecast.main.temp_max)}°
+                            </strong>   
                             <span id="temperature-low">
-                                ${Math.round(response.data.list[0].main.temp_min)}°
+                                ${Math.round(forecast.main.temp_min)}°
                             </span>
                         </div>
                     </div>
-                    <div class="col-2 day2">
-                        <h3 class="forecast-day">
-                            ${formatDays(response.data.list[1].dt * 1000)}
-                            ${formatHours(response.data.list[1].dt * 1000)}
-                        </h3>
-                        <img src="http://openweathermap.org/img/wn/${response.data.list[1].weather[0].icon}@2x.png" alt="sunny" id="day2-icon">
-                        <div class="weather-forecast-temperature">
-                            <strong id="temperature-high">
-                                ${Math.round(response.data.list[1].main.temp_max)}°
-                            </strong>
-
-                            <span id="temperature-low">
-                                ${Math.round(response.data.list[1].main.temp_min)}°
-                            </span>
-                        </div>
-                    </div>
-                    <div class="col-2 day3">
-                        <h3 class="forecast-day">
-                            ${formatDays(response.data.list[2].dt * 1000)}
-                            ${formatHours(response.data.list[2].dt * 1000)}
-                        </h3>
-                        <img src="http://openweathermap.org/img/wn/${response.data.list[2].weather[0].icon}@2x.png" alt="sunny" id="day3-icon">
-                        <div class="weather-forecast-temperature">
-                            <strong id="temperature-high">
-                                ${Math.round(response.data.list[2].main.temp_max)}°
-                            </strong>
-
-                            <span id="temperature-low">
-                                ${Math.round(response.data.list[2].main.temp_min)}°
-                            </span>
-                        </div>
-                    </div>
-                    <div class="col-2 day4">
-                        <h3 class="forecast-day">
-                            ${formatDays(response.data.list[3].dt * 1000)}
-                            ${formatHours(response.data.list[3].dt * 1000)}
-                        </h3>
-                        <img src="http://openweathermap.org/img/wn/${response.data.list[3].weather[0].icon}@2x.png" alt="sunny" id="day4-icon">
-                        <div class="weather-forecast-temperature">
-                            <strong id="temperature-high">
-                                ${Math.round(response.data.list[3].main.temp_max)}°
-                            </strong>
-
-                            <span id="temperature-low">
-                                ${Math.round(response.data.list[3].main.temp_min)}°
-                            </span>
-                        </div>
-                    </div>
-                    <div class="col-2 day5">
-                        <h3 class="forecast-day">
-                            ${formatDays(response.data.list[4].dt * 1000)}
-                            ${formatHours(response.data.list[4].dt * 1000)}
-                        </h3>
-                        <img src="http://openweathermap.org/img/wn/${response.data.list[4].weather[0].icon}@2x.png" alt="sunny" id="day5-icon">
-                        <div class="weather-forecast-temperature">
-                            <strong id="temperature-high">
-                                ${Math.round(response.data.list[4].main.temp_max)}°
-                            </strong>
-
-                            <span id="temperature-low">
-                                ${Math.round(response.data.list[4].main.temp_min)}°
-                            </span>
-                        </div>
-                    </div>
-                    <div class="col-2 day6">
-                        <h3 class="forecast-day">
-                            ${formatDays(response.data.list[5].dt * 1000)}
-                            ${formatHours(response.data.list[5].dt * 1000)}
-                        </h3>
-                        <img src="http://openweathermap.org/img/wn/${response.data.list[5].weather[0].icon}@2x.png" alt="sunny" id="day3-icon">
-                        <div class="weather-forecast-temperature">
-                            <strong id="temperature-high">
-                                ${Math.round(response.data.list[5].main.temp_max)}°
-                            </strong>
-
-                            <span id="temperature-low">
-                                ${Math.round(response.data.list[5].main.temp_min)}°
-                            </span>
-                        </div>
-                    </div>`
+                    `;
 }
+    }
 
 function search(city){
     let apiKey = "33ab5beffc1f84edf84d559d33e4f095";
