@@ -3,7 +3,7 @@ body {
   font-weight: 100;
   font-size: 20px;
   font-family: Arial, Helvetica, sans-serif;
-  background-color: ##f7f6f7;
+  background-color: #f7f6f7;
 }
 
 h1 {
@@ -25,15 +25,29 @@ li {
   margin: 0;
 }
 
+small {
+  color: #fdfcfb;
+}
+
 li:first-letter {
   text-transform: capitalize;
+}
+
+.background {
+  position: relative;
+}
+.container {
+  background-image: url("https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1680&q=80");
+  position: absolute;
+  background-size: cover;
+  width: 100%;
 }
 
 .weather-app {
   padding: 20px;
   border: 1px solid #dadde1;
   border-radius: 5px;
-  background-image: linear-gradient(135deg, #fdfcfb 0%, #e2d1c3 100%);
+  background-image: linear-gradient(135deg, #fdfcfb 0%, #e0c3aa 100%);
 }
 
 .weather-app-wrapper {
@@ -46,7 +60,7 @@ li:first-letter {
 }
 
 .weather-temperature .active {
-  color: rgb(186, 186, 186);
+  color: rgb(135, 135, 135);
   cursor: default;
 }
 

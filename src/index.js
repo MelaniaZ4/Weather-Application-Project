@@ -101,7 +101,6 @@ function displayForecast(response){
     forecastElement.innerHTML += `
     <div class="col-2">
                         <h3 class="forecast-day">
-                            ${formatDays(forecast.dt * 1000)}
                             ${formatHours(forecast.dt * 1000)}
                         </h3>
                         <img src="http://openweathermap.org/img/wn/${forecast.weather[0].icon}@2x.png" alt="sunny" id="day1-icon">
@@ -109,9 +108,6 @@ function displayForecast(response){
                             <strong id="temperature-high">
                                 ${Math.round(forecast.main.temp_max)}°
                             </strong>   
-                            <span id="temperature-low">
-                                ${Math.round(forecast.main.temp_min)}°
-                            </span>
                         </div>
                     </div>
                     `;
@@ -145,7 +141,6 @@ function convertToFahrenheit(event){
     celsiusElement.classList.add("active");
     fahrenheitElement.classList.remove("active");
 }
-
 
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
