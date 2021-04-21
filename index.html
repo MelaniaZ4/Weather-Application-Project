@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,105 +12,93 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
-        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
-        <link rel="stylesheet" href="src/styles.css">
+    <link rel="stylesheet" href="src/styles.css">
 </head>
+
 <Body>
     <div class="background">
         <div class="container">
-        <div class="weather-app-wrapper">
-            <div class="weather-app">  
-                <form id="search-form" class="mb-3">
-                    <div class="row">
-                        <div class="col-md-9">
-                            <input 
-                            placeholder="Type city name"
-                            type="search"
-                            id="city-input"
-                            class="form-control"
-                            autocomplete="off">
+            <div class="weather-app-wrapper">
+                <div class="weather-app">
+                    <form id="search-form" class="mb-3">
+                        <div class="row">
+                            <div class="col-md-9">
+                                <input placeholder="Type city name" type="search" id="city-input" class="form-control"
+                                    autocomplete="off">
                             </div>
                             <div class="col-md-3">
-                            <input 
-                            id="submit-button" 
-                            type="submit"
-                            value="Search"
-                            class="btn btn-primary w-100">
-                            </input>
+                                <input id="submit-button" type="submit" value="Search" class="btn btn-primary w-100">
+                                </input>
+                            </div>
                         </div>
-                    </div>
-                </form>
-                <h1 id="city"></h1>
-                <div class="overview">
-                    <ul>
-                        <li >
-                            Last updated: <span id="date"></span>
-
-                        </li>
-                        <li id="description">
-                        </li>  
-                    </ul>
-                </div>
-                <div class="row">       
-                    <div class="col-md-6">
-                        <div class="clear-fix">
-                            <img 
-                            src="" 
-                            alt="sunny"
-                            class= "float-left"
-                            id="weather-icon">
-                        </div>
-                        <div class="float-left weather-temperature">
-                            <span id="temperature"> 
-                            </span>
-                            <span id="units">
-                                <a id="celsius" href="#" class="active">°C</a>
-                            |
-                                <a href="#" id="fahrenheit">°F</a> 
-                            </span>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
+                    </form>
+                    <h1 id="city"></h1>
+                    <div class="overview">
                         <ul>
                             <li>
-                                Feels like: 
-                                <span id="feelsLike">6</span>   
-                                °C
+                                Last updated: <span id="date"></span>
+
                             </li>
-                            <li>
-                                Humidity: 
-                                <span id="humidity">73</span>
-                                %
-                            </li>
-                            <li>
-                                Wind: 
-                                <span id="windSpeed">2</span>
-                                km/h
+                            <li id="description">
                             </li>
                         </ul>
                     </div>
-                </div>
-            
-                
-                <div class="row weather-forecast" id="forecast">
-                    <!-- Forecast -->
-                    
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="clear-fix">
+                                <img src="" alt="sunny" class="float-left" id="weather-icon">
+                            </div>
+                            <div class="float-left weather-temperature">
+                                <span id="temperature">
+                                </span>
+                                <span id="units">
+                                    <a id="celsius" href="#" class="active">°C</a>
+                                    |
+                                    <a href="#" id="fahrenheit">°F</a>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <ul>
+                                <li>
+                                    Feels like:
+                                    <span id="feelsLike">6</span>
+                                    °C
+                                </li>
+                                <li>
+                                    Humidity:
+                                    <span id="humidity">73</span>
+                                    %
+                                </li>
+                                <li>
+                                    Wind:
+                                    <span id="windSpeed">2</span>
+                                    km/h
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+
+                    <div class="row weather-forecast" id="forecast">
+                        <!-- Forecast -->
+
                     </div>
 
 
 
+                </div>
+                <small>
+                    <a href="https://github.com/MelaniaZ4/Weather-Application-Project.git" target="_blank">Open-source
+                        code</a>
+                    by Melanie Brandes
+                </small>
             </div>
-            <small>
-                <a href="https://github.com/MelaniaZ4/Weather-Application-Project.git"
-                target="_blank"
-                >Open-source code</a
-                > 
-                by Melanie Brandes
-            </small>
         </div>
-    </div>
     </div>
     <script src="src/index.js"></script>
 </body>
+
 </html>
